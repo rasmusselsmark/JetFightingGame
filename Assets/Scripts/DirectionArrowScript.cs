@@ -15,9 +15,17 @@ public class DirectionArrowScript : MonoBehaviour
 	{
 		// point to closest ufo
 		Transform closestUfo = LocateClosestUfo();
-		Transform arrowTransform = this.GetComponent<Transform>();
 	
+		if (closestUfo == null)
+		{
+			this.GetComponent<UnityEngine.UI.Image>().enabled = false;
+			return;
+		}
+
+		this.GetComponent<UnityEngine.UI.Image>().enabled = true;
 		float angle = GetAngleBetweenVectors(Jet.position, closestUfo.position);
+
+		Transform arrowTransform = this.GetComponent<Transform>();
 		arrowTransform.rotation = Quaternion.Euler(0, 0, 180 - angle);
 	}
 	

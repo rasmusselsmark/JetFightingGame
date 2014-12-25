@@ -903,9 +903,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 1111728634}
   - 114: {fileID: 1111728635}
-  - 82: {fileID: 1111728636}
   - 95: {fileID: 1111728638}
   - 212: {fileID: 1111728637}
+  - 58: {fileID: 1111728639}
+  - 50: {fileID: 1111728640}
+  - 82: {fileID: 1111728636}
   m_Layer: 0
   m_Name: Ufo
   m_TagString: Ufo
@@ -1015,8 +1017,8 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a60efef2788d0a34d80142bf015afc18, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 2199756a31d54c8438debf3746d2f01b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &1111728638
 Animator:
@@ -1033,6 +1035,32 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!58 &1111728639
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1111728633}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: .720000029
+  m_Center: {x: 0, y: 0}
+--- !u!50 &1111728640
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1111728633}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1 &1153409177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,6 +1931,7 @@ GameObject:
   - 114: {fileID: 1873857893}
   - 82: {fileID: 1873857894}
   - 212: {fileID: 1873857895}
+  - 58: {fileID: 1873857896}
   m_Layer: 0
   m_Name: Jet
   m_TagString: Untagged
@@ -1936,7 +1965,6 @@ MonoBehaviour:
   Speed: 1
   MinSpeed: 4
   MaxSpeed: 10
-  BulletAudio: {fileID: 1873857894}
   BulletPrefab: {fileID: 155364, guid: 1c8ee9fa3e844854b94b44a16580c86d, type: 2}
   fireRate: .200000003
 --- !u!82 &1873857894
@@ -2019,6 +2047,17 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 79289edae0ddfe140b4613450b550682, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!58 &1873857896
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1873857891}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: .451031685
+  m_Center: {x: 0, y: 0}
 --- !u!1 &1937076592
 GameObject:
   m_ObjectHideFlags: 0

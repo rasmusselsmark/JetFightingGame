@@ -8,7 +8,6 @@ public class JetScript : MonoBehaviour
 	public float MinSpeed = 1.0f;
 	public float MaxSpeed = 20.0f;
 
-	public AudioSource BulletAudio;
 	public GameObject BulletPrefab;
 	public float fireRate = 0.1f;
 	private float nextFire = 0.0f;
@@ -43,18 +42,18 @@ public class JetScript : MonoBehaviour
 		}
 
 		// Move the jet
-		// t.Translate (0.0f, this.Speed * Time.deltaTime, 0.0f);
+		t.Translate (0.0f, this.Speed * Time.deltaTime, 0.0f);
 	}
 
 	void FireBullet(Transform transform)
 	{
-		BulletAudio.Play();
+		this.GetComponent<AudioSource>().Play();
 
-		Vector3 position = transform.position + (transform.rotation * new Vector3(-0.5f, 0.5f, 0.0f));
+		Vector3 position = transform.position + (transform.rotation * new Vector3(-0.25f, 0.6f, 0.0f));
 		Object bullet = Instantiate(BulletPrefab, position, transform.rotation);
 		Destroy(bullet, 1.0f);
 
-		position = transform.position + (transform.rotation * new Vector3(+0.5f, 0.5f, 0.0f));
+		position = transform.position + (transform.rotation * new Vector3(+0.25f, 0.6f, 0.0f));
 		bullet = Instantiate(BulletPrefab, position, transform.rotation);
 		Destroy(bullet, 1.0f);
 	}

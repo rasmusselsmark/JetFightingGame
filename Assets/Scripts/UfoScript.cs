@@ -18,11 +18,20 @@ public class UfoScript : MonoBehaviour
 	void Update ()
 	{
 		Transform t = this.GetComponent<Transform>();
-		// t.position = Vector2.MoveTowards(t.position, this.TargetPosition, this.Speed * Time.deltaTime);
+		t.position = Vector2.MoveTowards(t.position, this.TargetPosition, this.Speed * Time.deltaTime);
 
 		if (Vector2.Distance(t.position, this.TargetPosition) < 0.05)
 		{
 			FindNewTargetPosition();
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		Debug.Log("COllide!");
+		if (coll.gameObject.tag == "Bullet")
+		{
+			GetComponent<Animator>().SetTrigger("Explode");
 		}
 	}
 
@@ -32,5 +41,15 @@ public class UfoScript : MonoBehaviour
 		this.TargetPosition = new Vector2(
 			Random.Range(jetPosition.x - 30, jetPosition.x + 30),
 			Random.Range(jetPosition.y - 30, jetPosition.y + 30));
+	}
+
+	public void PlayExplosion()
+	{
+		this.GetComponent<AudioSource>().Play();
+	}
+
+	public void DestroyUfo()
+	{
+		Destroy (this.gameObject);
 	}
 }
