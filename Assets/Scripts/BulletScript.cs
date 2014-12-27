@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BulletScript : MonoBehaviour {
+public class BulletScript : MonoBehaviour
+{
 	public float Speed = 1.0f;
 	// Use this for initialization
 	void Start () {

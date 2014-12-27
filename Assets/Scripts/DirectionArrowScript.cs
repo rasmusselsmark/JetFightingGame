@@ -16,7 +16,7 @@ public class DirectionArrowScript : MonoBehaviour
 		// point to closest ufo
 		Transform closestUfo = LocateClosestUfo();
 	
-		if (closestUfo == null)
+		if ((Jet == null) || (closestUfo == null))
 		{
 			this.GetComponent<UnityEngine.UI.Image>().enabled = false;
 			return;

@@ -12,6 +12,9 @@ public class CameraScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		if (Follow == null)
+			return;
+
 		var camera = this.GetComponent<Transform> ();
 		var jet = Follow.GetComponent<Transform> ();
 

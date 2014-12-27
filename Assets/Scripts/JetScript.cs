@@ -58,4 +58,17 @@ public class JetScript : MonoBehaviour
 		Destroy(bullet, 1.0f);
 	}
 
+	void OnTriggerEnter2D(Collider2D coll)
+	{
+		if (coll.gameObject.tag == "Ufo") 
+		{
+			GetComponent<Animator>().SetTrigger("Explode");
+		}
+	}
+
+	// Called by Animator Controller
+	public void DestroyJet()
+	{
+		Destroy(this.gameObject);
+	}
 }
