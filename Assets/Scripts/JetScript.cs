@@ -67,8 +67,15 @@ public class JetScript : MonoBehaviour
 	}
 
 	// Called by Animator Controller
+	public void PlayExplosionAudio()
+	{
+		Debug.Log("PlayExplosion()");
+		// this.GetComponent<AudioSource>().Play();
+	}
+
 	public void DestroyJet()
 	{
-		Destroy(this.gameObject);
+		Debug.Log("DestroyJet()");
+		SceneControllerScript.Instance.PlayerDied();
 	}
 }

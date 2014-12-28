@@ -9,6 +9,8 @@ public class UfoScript : MonoBehaviour
 	private Vector2 TargetPosition;
 	private bool isExploded;
 
+	bool explosionAudioPlayed = false;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -52,11 +54,19 @@ public class UfoScript : MonoBehaviour
 	// Called by animator controller
 	public void PlayExplosion()
 	{
+		if (this.explosionAudioPlayed)
+		{
+			return; // called twice, see http://forum.unity3d.com/threads/mecanim-4-3-animation-event-sent-twice.213830/
+		}
+
+		this.explosionAudioPlayed = true;
+		Debug.Log("Ufo.PlayExplosion()");
 		this.GetComponent<AudioSource>().Play();
 	}
 
 	public void DestroyUfo()
 	{
+		Debug.Log("DestroyUfo()");
 		Destroy(this.gameObject);
 	}
 }

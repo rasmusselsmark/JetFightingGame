@@ -146,6 +146,7 @@ MonoBehaviour:
   Speed: 1
   MinSpeed: 4
   MaxSpeed: 10
+  SceneController: {fileID: 0}
   BulletPrefab: {fileID: 155364, guid: 1c8ee9fa3e844854b94b44a16580c86d, type: 2}
   fireRate: .200000003
 --- !u!212 &21232626

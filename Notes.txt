@@ -1,0 +1,7 @@
+file:///C:/Program%20Files%20%28x86%29/Unity/Editor/Data/Documentation/html/en/ScriptReference/Animator.SetTrigger.html
+
+No divider between different signatures of method
+
+Animator: What is IK? defined in AnimationGlossary.html, but not really easy to find
+
+Local help from MonoDevelop
