@@ -33,8 +33,12 @@ public class UfoScript : MonoBehaviour
 	{
 		if ((coll.gameObject.tag == "Bullet") || (coll.gameObject.tag == "Jet")) 
 		{
+			if (coll.gameObject.tag == "Bullet")
+			{
+				SceneControllerScript.Instance.UfoShot();
+			}
+
 			GetComponent<Animator>().SetTrigger("Explode");
-			Destroy (coll.gameObject);
 			this.isExploded = true;
 			this.GetComponent<CircleCollider2D>().enabled = false;
 		}
@@ -60,13 +64,11 @@ public class UfoScript : MonoBehaviour
 		}
 
 		this.explosionAudioPlayed = true;
-		Debug.Log("Ufo.PlayExplosion()");
 		this.GetComponent<AudioSource>().Play();
 	}
 
 	public void DestroyUfo()
 	{
-		Debug.Log("DestroyUfo()");
-		Destroy(this.gameObject);
+		SceneControllerScript.Instance.DestroyUfo(this.gameObject);
 	}
 }

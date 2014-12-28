@@ -15,4 +15,12 @@ public class BulletScript : MonoBehaviour
 		Transform t = GetComponent<Transform> ();
 		t.Translate (0.0f, this.Speed * Time.deltaTime, 0.0f);
 	}
+
+	void OnTriggerEnter2D(Collider2D coll)
+	{
+		if (coll.name == "Ufo")
+		{
+			Destroy (this.gameObject);
+		}
+	}
 }

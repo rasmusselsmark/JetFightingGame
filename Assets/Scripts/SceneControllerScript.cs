@@ -9,29 +9,28 @@ public class SceneControllerScript : MonoBehaviour
 	public GameObject UfoPrefab;
 	public UnityEngine.UI.Text LivesText;
 	public UnityEngine.UI.Text ScoreText;
+	public UnityEngine.UI.Text LevelText;
 
-	private int Lives;
-	private int Score;
+	private int lives;
+	private int score;
+	private int level;
+	private int numberOfEnemies;
 
 	void Awake()
 	{
-		// set singleton instance
+		// set singleton instance, see http://unitypatterns.com/singletons/
 		Instance = this;
 	}
 
 	// Use this for initialization
 	void Start ()
 	{
-		this.Lives = 9;
-		this.Score = 0;
+		lives = 9;
+		score = 0;
+		level = 1;
+		numberOfEnemies = 0;
 
-		for (int i = 0; i < 10; i++)
-		{
-			GameObject ufo = Instantiate(UfoPrefab) as GameObject;
-			Transform ufoTransform = ufo.GetComponent<Transform>();
-			ufoTransform.position = new Vector2 (-10, -10);
-			ufo.GetComponent<UfoScript>().Jet = Jet;
-		}
+		InstantiateUfos ();
 	}
 	
 	// Update is called once per frame
@@ -39,19 +38,64 @@ public class SceneControllerScript : MonoBehaviour
 	
 	}
 
+	void InstantiateUfos ()
+	{
+		StartCoroutine(ShowLevelText());
+		for (int i = 0; i < level * 5; i++) {
+			InstantiateUfo ();
+		}
+	}
+
+	IEnumerator ShowLevelText()
+	{
+		LevelText.enabled = true;
+		LevelText.text = string.Format("Level {0}", level);
+		yield return new WaitForSeconds(3);
+		LevelText.enabled = false;
+	}
+
+	void InstantiateUfo ()
+	{
+		GameObject ufo = Instantiate (UfoPrefab) as GameObject;
+		Transform ufoTransform = ufo.GetComponent<Transform> ();
+		ufoTransform.position = new Vector2 (-10, -10);
+
+		UfoScript ufoScript = ufo.GetComponent<UfoScript>();
+		ufoScript.Jet = Jet;
+		ufoScript.Speed = ufoScript.Speed + level * 2;
+
+		numberOfEnemies++;
+	}
+
+	public void DestroyUfo(GameObject ufo)
+	{
+		Destroy(ufo);
+		numberOfEnemies--;
+
+		if (numberOfEnemies <= 0)
+		{
+			level++;
+			InstantiateUfos();
+		}
+	}
+
 	public void PlayerDied ()
 	{
-		Debug.Log("PlayerDied()");
-		this.Lives--;
-		this.Jet.GetComponent<Animator>().SetTrigger("Revive");
-		this.Jet.GetComponent<Transform>().position = new Vector2(0, 0);
-		// this.Jet.GetComponent<Transform>().position = new Vector2(0, 0);
-		this.UpdateUI();
+		lives--;
+		Jet.GetComponent<Animator>().SetTrigger("Revive");
+		Jet.GetComponent<Transform>().position = new Vector2(0, 0);
+		UpdateUI();
+	}
+
+	public void UfoShot()
+	{
+		score++;
+		UpdateUI();
 	}
 
 	public void UpdateUI()
 	{
-		this.ScoreText.text = string.Format("Score: {0}", this.Score);
-		this.LivesText.text = string.Format("Lives: {0}", this.Lives);
+		ScoreText.text = string.Format("Score: {0}", this.score);
+		LivesText.text = string.Format("Lives: {0}", this.lives);
 	}
 }
