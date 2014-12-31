@@ -5,3 +5,7 @@ No divider between different signatures of method
 Animator: What is IK? defined in AnimationGlossary.html, but not really easy to find
 
 Local help from MonoDevelop
+
+Incorrect syntax in http://docs.unity3d.com/ScriptReference/UI.Slider.html
+
+How to call UI slider event handler?

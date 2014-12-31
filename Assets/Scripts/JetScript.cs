@@ -12,7 +12,6 @@ public class JetScript : MonoBehaviour
 	public float fireRate = 0.1f;
 	private float nextFire = 0.0f;
 
-	public UnityEngine.UI.Slider TurnSlider;
 	public UnityEngine.UI.Slider SpeedSlider;
 
 	// Use this for initialization
@@ -26,15 +25,7 @@ public class JetScript : MonoBehaviour
 		Transform t = GetComponent<Transform> ();
 
 		// Turn
-		if (Input.GetAxis("Horizontal") != 0)
-		{
-			Turn(Input.GetAxis("Horizontal"));
-			TurnSlider.value = 0;
-		}
-		else
-		{
-			Turn(TurnSlider.value);
-		}
+		Turn(Input.GetAxis("Horizontal"));
 
 		// Control speed
 		if (Input.GetAxis ("Vertical") != 0)
