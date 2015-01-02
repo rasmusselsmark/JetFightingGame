@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnitySampleAssets.CrossPlatformInput;
 
 public class JetScript : MonoBehaviour
 {
@@ -12,7 +13,9 @@ public class JetScript : MonoBehaviour
 	public float fireRate = 0.1f;
 	private float nextFire = 0.0f;
 
+	// controls
 	public UnityEngine.UI.Slider SpeedSlider;
+	public FireZoneScript fireZone;
 
 	// Use this for initialization
 	void Start ()
@@ -25,17 +28,22 @@ public class JetScript : MonoBehaviour
 		Transform t = GetComponent<Transform> ();
 
 		// Turn
-		Turn(Input.GetAxis("Horizontal"));
+		Turn(CrossPlatformInputManager.GetAxis("Horizontal"));
 
-		// Control speed
-		if (Input.GetAxis ("Vertical") != 0)
-		{
-			this.Speed += Input.GetAxis ("Vertical");
-		}
-		else
-		{
-			this.Speed = MinSpeed + (MaxSpeed - MinSpeed) * SpeedSlider.value;
-		}
+		// Control speed (using keyboard or slider)
+#if MOBILE_INPUT
+		this.Speed = MinSpeed + (MaxSpeed - MinSpeed) * SpeedSlider.value;
+#else
+		this.Speed += Input.GetAxis ("Vertical");
+
+		// speed   slider
+		//   10       1
+		//    7       0.5
+		//    4       0
+		// f(x) = ax + b
+		// f(x) = (0.5/3)x - 2/3
+		SpeedSlider.value = (0.5f/3.0f) * this.Speed - (2.0f/3.0f);
+#endif
 
 		if (this.Speed < this.MinSpeed)
 		{
@@ -46,15 +54,7 @@ public class JetScript : MonoBehaviour
 			this.Speed = this.MaxSpeed;
 		}
 
-		// speed   slider
-		//   10       1 
-		//    7       0.5
-		//    4       0
-		// f(x) = ax + b
-		// f(x) = (0.5/3)x - 2/3 
-		SpeedSlider.value = (0.5f/3.0f) * this.Speed - (2.0f/3.0f);  
-
-		if (Input.GetButton("Fire1") && Time.time > nextFire)
+		if (fireZone.IsTouched() && Time.time > nextFire)
 		{
 			nextFire = Time.time + fireRate;
 			FireBullet(t);

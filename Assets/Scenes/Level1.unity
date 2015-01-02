@@ -356,7 +356,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 66, y: 64}
+  m_AnchoredPosition: {x: 74, y: 64}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &263773945
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bdae2d8eda66341a8e36554e72a5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementRange: 100
+  MovementRange: 50
   axesToUse: 0
   horizontalAxisName: Horizontal
   verticalAxisName: Vertical
@@ -844,9 +844,9 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -970,8 +970,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 105.599998, y: -57.5}
-  m_SizeDelta: {x: 200, y: 40}
+  m_AnchoredPosition: {x: 133, y: -58}
+  m_SizeDelta: {x: 250, y: 40}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &705909968
 MonoBehaviour:
@@ -1164,11 +1164,88 @@ Prefab:
       propertyPath: SpeedSlider
       value: 
       objectReference: {fileID: 1558042341}
+    - target: {fileID: 11432626, guid: f0d35a52837140947bbae03b0cc110c9, type: 2}
+      propertyPath: fireZone
+      value: 
+      objectReference: {fileID: 1028960967}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0d35a52837140947bbae03b0cc110c9, type: 2}
   m_RootGameObject: {fileID: 1873857891}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1028960965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1028960966}
+  - 222: {fileID: 1028960969}
+  - 114: {fileID: 1028960968}
+  - 114: {fileID: 1028960967}
+  m_Layer: 5
+  m_Name: FireZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1028960966
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1028960965}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1389842122}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -50, y: 25}
+  m_SizeDelta: {x: 100, y: 50}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1028960967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1028960965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71fcb42923ada481fa32c452b931f1bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1028960968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1028960965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: .176470593}
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1028960969
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1028960965}
 --- !u!1 &1034677401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,9 +1586,9 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1655,6 +1732,7 @@ RectTransform:
   m_Children:
   - {fileID: 1558042340}
   - {fileID: 263773944}
+  - {fileID: 1028960966}
   m_Father: {fileID: 1688802881}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -1747,8 +1825,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 105.599998, y: -26}
-  m_SizeDelta: {x: 200, y: 40}
+  m_AnchoredPosition: {x: 133, y: -26}
+  m_SizeDelta: {x: 250, y: 40}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1418642559
 MonoBehaviour:
@@ -2030,7 +2108,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -26.5, y: 86}
+  m_AnchoredPosition: {x: -26, y: 108}
   m_SizeDelta: {x: 50, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1558042341
@@ -2173,8 +2251,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2717,6 +2795,7 @@ MonoBehaviour:
   BulletPrefab: {fileID: 155364, guid: 1c8ee9fa3e844854b94b44a16580c86d, type: 2}
   fireRate: .200000003
   SpeedSlider: {fileID: 1558042341}
+  fireZone: {fileID: 1028960967}
 --- !u!82 &1873857894
 AudioSource:
   m_ObjectHideFlags: 0
