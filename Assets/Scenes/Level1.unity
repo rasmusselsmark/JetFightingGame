@@ -356,8 +356,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 74, y: 64}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 40, y: 40}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &263773945
 MonoBehaviour:
@@ -397,8 +397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bdae2d8eda66341a8e36554e72a5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementRange: 50
-  axesToUse: 0
+  MovementRange: 15
+  axesToUse: 1
   horizontalAxisName: Horizontal
   verticalAxisName: Vertical
 --- !u!1 &270866376
