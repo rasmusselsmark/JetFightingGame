@@ -10,4 +10,4 @@ Incorrect syntax in http://docs.unity3d.com/ScriptReference/UI.Slider.html
 
 How to call UI slider event handler?
 
-* Add Mobile Controller
+* Add Mobile Controller (updated on branch)
